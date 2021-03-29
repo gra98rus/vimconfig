@@ -23,7 +23,6 @@ set foldopen=all                                    " автоматическо
 autocmd! bufwritepre $MYVIMRC call setline(1, '"" Last update: '.strftime("%d.%m.%Y %H:%M"))
 syntax on                                           " включить подсветку синтаксиса
 set expandtab 					                    " преобразовать табуляцию в пробелы
-set smartindent                                     " Умные отступы (например, автоотступ после {)
 set autoindent                                      " ai - включить автоотступы (копируется отступ предыдущей строки)
 
 call pathogen#infect()                              " pathogen turn on
