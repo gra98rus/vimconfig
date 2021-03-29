@@ -1,0 +1,4 @@
+[submodule "bundle/systemverilog"]
+	path = bundle/systemverilog
+	url = https://github.com/vhda/verilog_systemverilog.vim.git
+	branch = master
