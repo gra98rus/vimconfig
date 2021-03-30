@@ -55,10 +55,6 @@ menu Encoding.windows-1251 :e ++enc=cp1251<CR>
 menu Encoding.cp866 :e ++enc=cp866<CR>
 menu Encoding.utf-8 :e ++enc=utf8 <CR>
 map <F2> :Explore<CR>
-map й q
-map ц w
-map ш i
-map щ o
-map Ж :
-cnoreabbrev цй wq
-cnoreabbrev й! q!
+
+source ~/.vim/russian_aliases.vim
+
