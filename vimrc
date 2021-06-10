@@ -59,6 +59,9 @@ augroup Systemverilog
     autocmd FileType systemverilog setlocal omnifunc=syntaxcomplete#Complete
 augroup END
 
+autocmd BufNewFile,BufRead SConstruct set filetype=python
+autocmd BufNewFile,BufRead *.scons    set filetype=python
+
 set wildmenu
 set wcm=<Tab>
 menu Encoding.koi8-r :e ++enc=koi8-r<CR>
