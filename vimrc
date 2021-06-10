@@ -1,15 +1,15 @@
-"" Last update: 26.03.2021 17:26
+"" Last update: 10.06.2021 09:57
 set shiftwidth=4                                    " размер отступов
 set tabstop=4                                       " ширина табуляции
 set number
 set linebreak                                       " переносить целые слова
 set mouse=a                                         " включает поддержку мыши при работе в терминале
 set showmatch
-set clipboard=unnamed,unnamedplus                  "глобальный буфер обмена
+set clipboard=unnamed,unnamedplus                   "глобальный буфер обмена
 autocmd VimLeave * call system("echo -n $'" . escape(getreg(), "'") . "' | xsel -ib")
 
 autocmd CursorMoved * silent! exe printf("match Search /\\<%s\\>/", expand('<cword>'))
-        
+
 set ignorecase  									" поиск без учёта регистра символов
 set nohlsearch
 set incsearch 									   	" поиск фрагмента по мере набора
@@ -26,6 +26,17 @@ set expandtab 					                    " преобразовать табуля
 set autoindent                                      " ai - включить автоотступы (копируется отступ предыдущей строки)
 
 call pathogen#infect()                              " pathogen turn on
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/                       " подсветка и удаление пробелов в конце строки
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+autocmd BufWritePre * :call TrimWhiteSpace()
 
 function! VisualSearch()
    let l:old_reg=getreg('"')
