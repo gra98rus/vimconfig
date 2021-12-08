@@ -2,7 +2,7 @@
 
 set wrap
 set shiftround
-set shiftwidth=0
+set shiftwidth=4
 set tabstop=4
 set hlsearch
 set incsearch
@@ -19,6 +19,7 @@ syntax on
 autocmd! bufwritepre $MYVIMRC call setline(1, '"" Last update: '.strftime("%d.%m.%Y %H:%M"))
 
 let mapleader = ","
+let maplocalleader = ","
 noremap <leader>z ddp
 noremap <leader>Z ddkP
 inoremap <c-u> <esc>viwUi
@@ -75,12 +76,27 @@ augroup Systemverilog
     autocmd FileType systemverilog setlocal omnifunc=syntaxcomplete#Complete
 augroup END
 
-autocmd BufNewFile,BufRead SConstruct set filetype=python
-autocmd BufNewFile,BufRead *.scons    set filetype=python
-
 source ~/.vim/plugin/grep_operator.vim
 source ~/.vim/plugin/c_rules.vim
 source ~/.vim/plugin/python_rules.vim
 source ~/.vim/plugin/markdown_rules.vim
 source ~/.vim/abbreviations.vim
 source ~/.vim/russian_aliases.vim
+
+autocmd BufNewFile,BufRead SConstruct set filetype=python
+autocmd BufNewFile,BufRead *.scons    set filetype=python
+
+nnoremap <leader>q :call QuickfixToggle()<cr>
+let g:quickfix_is_open = 0
+function! QuickfixToggle()
+    if g:quickfix_is_open
+        cclose
+        let g:quickfix_is_open = 0
+        execute g:quickfix_return_to_window . "wincmd w"
+    else
+        let g:quickfix_return_to_window = winnr()
+        copen
+        let g:quickfix_is_open = 1
+    endif
+endfunction
+

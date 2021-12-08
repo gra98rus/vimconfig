@@ -1,3 +1,4 @@
+map в d
 map г u
 map з p
 map й q
