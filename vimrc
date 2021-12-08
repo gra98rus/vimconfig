@@ -65,6 +65,7 @@ function! TrimWhiteSpace()
 endfunction
 autocmd BufWritePre * :call TrimWhiteSpace()
 
+call pathogen#infect()
 
 filetype plugin indent on
 autocmd FileType c set omnifunc=ccomplete#Complete
