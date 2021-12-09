@@ -2,3 +2,6 @@
 	path = bundle/systemverilog
 	url = git@github.com:gra98rus/systemverilog.git
 	branch = master
+[submodule "bundle/c"]
+	path = bundle/c
+	url = git@github.com:gra98rus/c.git
