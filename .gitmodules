@@ -8,3 +8,9 @@
 [submodule "bundle/vhdl"]
 	path = bundle/vhdl
 	url = git@github.com:gra98rus/vhdl.git
+[submodule "bundle/vim_lib"]
+	path = bundle/vim_lib
+	url = git@github.com:Bashka/vim_lib.git
+[submodule "bundle/vim_prj"]
+	path = bundle/vim_prj
+	url = git@github.com:Bashka/vim_prj.git
