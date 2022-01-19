@@ -76,6 +76,8 @@ augroup Systemverilog
     autocmd FileType systemverilog setlocal omnifunc=syntaxcomplete#Complete
 augroup END
 
+autocmd CursorMoved * silent! exe printf("match Search /\\<%s\\>/", expand('<cword>'))
+
 source ~/.vim/plugin/grep_operator.vim
 source ~/.vim/plugin/c_rules.vim
 source ~/.vim/plugin/python_rules.vim
