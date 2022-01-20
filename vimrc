@@ -48,7 +48,9 @@ set laststatus=2
 set statusline=%F
 set statusline=%.30F
 set statusline+=%=
-set statusline+=%l
+set statusline+=%c
+set statusline+=\ \|
+set statusline+=\ %l
 set statusline+=/
 set statusline+=%L
 
