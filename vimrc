@@ -26,6 +26,9 @@ inoremap <c-u> <esc>viwUi
 nnoremap <leader><c-u> viwU
 inoremap <c-d> dd
 
+nnoremap <leader>vs :vsplit<cr>
+nnoremap <leader>gs :split<cr>
+
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
